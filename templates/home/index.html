@@ -1,0 +1,147 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- Hero Section -->
+<div class="hero min-h-screen bg-gradient-to-r from-red-600 to-blue-400">
+    <div class="hero-content text-center text-neutral-content">
+        <div class="max-w-md">
+            <h1 class="mb-5 text-5xl font-bold">Rever</h1>
+            <p class="mb-5 text-xl">Boost your coding interview preparation with personalized DSA questions recommended by our AI model.</p>
+            <a class="btn btn-secondary" href="{% url 'revision' %}">Get Started</a>
+        </div>
+    </div>
+</div>
+
+<!-- Features Section -->
+<div class="py-16 bg-base-100">
+    <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center mb-12">How It Works</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Feature Card 1 -->
+            <div class="card bg-base-200 shadow-xl">
+                <div class="card-body items-center text-center">
+                    <div class="card-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold">Personalized Questions</h3>
+                    <p>Our AI analyzes your skill level and recommends DSA questions tailored just for you.</p>
+                </div>
+            </div>
+            
+            <!-- Feature Card 2 -->
+            <div class="card bg-base-200 shadow-xl">
+                <div class="card-body items-center text-center">
+                    <div class="card-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold">All Categories</h3>
+                    <p>Practice with questions from arrays, linked lists, trees, graphs, dynamic programming, and more.</p>
+                </div>
+            </div>
+            
+            <!-- Feature Card 3 -->
+            <div class="card bg-base-200 shadow-xl">
+                <div class="card-body items-center text-center">
+                    <div class="card-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold">Improve Faster</h3>
+                    <p>Track your progress and get smarter recommendations as you improve your problem-solving skills.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CTA Section -->
+<div class="bg-primary text-primary-content py-16">
+    <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold mb-4">Ready to ace your coding interviews?</h2>
+        <p class="mb-6 text-xl max-w-2xl mx-auto">Join thousands of developers who have improved their DSA skills with our AI-powered question recommendations.</p>
+        <div class="flex justify-center gap-4 flex-wrap">
+            <button class="btn btn-secondary btn-lg">Sign Up Free</button>
+            <button class="btn btn-outline btn-lg">Learn More</button>
+        </div>
+    </div>
+</div>
+
+<!-- Question Categories -->
+<div class="py-16 bg-base-100">
+    <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center mb-12">Popular Question Categories</h2>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="stat bg-base-200 shadow rounded-box">
+                <div class="stat-title">Arrays</div>
+                <div class="stat-value">240+</div>
+                <div class="stat-desc">Questions available</div>
+            </div>
+            
+            <div class="stat bg-base-200 shadow rounded-box">
+                <div class="stat-title">Linked Lists</div>
+                <div class="stat-value">180+</div>
+                <div class="stat-desc">Questions available</div>
+            </div>
+            
+            <div class="stat bg-base-200 shadow rounded-box">
+                <div class="stat-title">Trees & Graphs</div>
+                <div class="stat-value">320+</div>
+                <div class="stat-desc">Questions available</div>
+            </div>
+            
+            <div class="stat bg-base-200 shadow rounded-box">
+                <div class="stat-title">Dynamic Programming</div>
+                <div class="stat-value">195+</div>
+                <div class="stat-desc">Questions available</div>
+            </div>
+        </div>
+        
+        <div class="text-center mt-8">
+            <a href="#" class="link link-primary text-lg">View all categories →</a>
+        </div>
+    </div>
+</div>
+
+<!-- Testimonials -->
+<div class="py-16 bg-base-200">
+    <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center mb-12">What Our Users Say</h2>
+        
+        <div class="carousel w-full">
+            <div class="carousel-item w-full md:w-1/3 p-4">
+                <div class="card bg-base-100 shadow-xl">
+                    <div class="card-body">
+                        <div class="flex items-center mb-4">
+                            <div class="avatar placeholder">
+                                <div class="bg-neutral-focus text-neutral-content rounded-full w-12">
+                                    <span>JD</span>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="font-bold">Jane Doe</h3>
+                                <p class="text-sm opacity-70">Software Engineer</p>
+                            </div>
+                        </div>
+                        <p>"This platform helped me prepare for my FAANG interviews in record time. The AI recommendations were spot-on!"</p>
+                        <div class="rating mt-4">
+                            <input type="radio" name="rating-1" class="mask mask-star bg-orange-400" checked />
+                            <input type="radio" name="rating-1" class="mask mask-star bg-orange-400" checked />
+                            <input type="radio" name="rating-1" class="mask mask-star bg-orange-400" checked />
+                            <input type="radio" name="rating-1" class="mask mask-star bg-orange-400" checked />
+                            <input type="radio" name="rating-1" class="mask mask-star bg-orange-400" checked />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
