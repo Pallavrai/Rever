@@ -26,8 +26,9 @@
                 <ul
                   tabindex="0"
                   class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                  <li><a>Homepage</a></li>
-                  <li><a>Portfolio</a></li>
+                  <li><a href="{% url 'home' %}">Home</a></li>
+                  <li><a>Problems</a></li>
+                  <li><a href="{% url 'revision' %}">Revision</a></li>
                   <li><a>About</a></li>
                 </ul>
               </div>
@@ -57,13 +58,15 @@
         <!-- Default content - will be overridden by child templates -->
         {% endblock content %}
     <!-- Footer -->
-    <footer class="bg-gray-100 py-4 mt-auto">
+     
+    <footer class="relative w-full bg-gray-100 py-4 bottom-0">
         {% block footer %}
         <div class="max-w-7xl mx-auto px-4 text-center">
             <p class="text-gray-600">&copy; {% now "Y" %} Rever. All rights reserved.</p>
         </div>
         {% endblock footer %}
     </footer>
+    
 
     <!-- Custom JavaScript -->
     {% block scripts %}{% endblock scripts %}

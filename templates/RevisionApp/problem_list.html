@@ -1,33 +1,92 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} 
+{% load static %}
+
 {% block content %}
 
-<div class="flex justify-center mt-10"></div>
-    <input type="text" placeholder="Search..." class="input input-bordered w-full max-w-xs" id="searchInput">
+<div class="flex justify-center mt-10 px-4">
+  <div class="join">
+    <div>
+      <div>
+        <input class="input w-[60vw] shrink join-item" placeholder="Search" />
+      </div>
+    </div>
+    <select class="select grow join-item">
+      <option disabled selected>Difficulty</option>
+      <option>Easy</option>
+      <option>Medium</option>
+      <option>Hard</option>
+    </select>
+    <!-- <div class="indicator">
+      <span class="indicator-item badge badge-secondary">new</span>
+      <button class="btn join-item">Search</button>
+    </div> -->
+  </div>
 </div>
-<div class="overflow-x-auto mt-5">
-    <table class="table w-full">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Problem</th>
-                <th>Solution</th>
-            </tr>
-        </thead>
-        <tbody id="tableBody">
-            <!-- Table rows will be populated here -->
-        </tbody>
-    </table>
+<div class="flex flex-col justify-center overflow-x-auto mt-5">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>
+          <label>
+            <input type="checkbox" class="checkbox" />
+          </label>
+        </th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Link</th>
+        <th>Frequency</th>
+      </tr>
+    </thead>
+
+    <tbody
+      id="tableBody"
+      hx-get="/revision"
+      hx-trigger="load"
+      hx-swap="innerHTML"
+    
+    >
+      <tr>
+        <td colspan="5" class="text-center">
+          <div class="htmx-indicator flex justify-center mt-5">
+            <span
+              id="loading"
+              class="loading loading-spinner text-primary loading-xl"
+            ></span>
+          </div>
+        </td>
+      </tr>
+      {% partialdef problemsComponent %} 
+      
+      {% for problem in problems %}
+      <tr>
+        <th>
+          <label>
+            <input type="checkbox" class="checkbox" />
+          </label>
+        </th>
+        <td>{{problem.title}}</td>
+        <td>{{problem.description}}</td>
+        <td>{{problem.link}}</td>
+        <td>{{problem.frequency}}</td>
+      </tr>
+      {% empty %}
+    <tr>
+      <td colspan="5" class="text-center">
+        <div class="flex flex-col items-center py-4">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="w-10 h-10" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+          </svg>
+        <p class="text-gray-400 text-md font-bold mt-2">No problems found</p>
+        </div>
+      </td>
+    </tr>
+      {% endfor %} 
+      
+      {% endpartialdef %}
+    </tbody>
+  </table>
+ 
 </div>
-<script>
-    document.getElementById('searchInput').addEventListener('input', function() {
-        const query = this.value.toLowerCase();
-        const rows = document.querySelectorAll('#tableBody tr');
-        rows.forEach(row => {
-            const cells = row.querySelectorAll('td');
-            const match = Array.from(cells).some(cell => cell.textContent.toLowerCase().includes(query));
-            row.style.display = match ? '' : 'none';
-        });
-    });
-</script>
 
 {% endblock %}
