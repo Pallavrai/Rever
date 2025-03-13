@@ -3,27 +3,11 @@
 
 {% block content %}
 
-<div class="flex justify-center mt-10 px-4">
-  <div class="join">
-    <div>
-      <div>
-        <input class="input w-[60vw] shrink join-item" placeholder="Search" />
-      </div>
-    </div>
-    <select class="select grow join-item">
-      <option disabled selected>Difficulty</option>
-      <option>Easy</option>
-      <option>Medium</option>
-      <option>Hard</option>
-    </select>
-    <!-- <div class="indicator">
-      <span class="indicator-item badge badge-secondary">new</span>
-      <button class="btn join-item">Search</button>
-    </div> -->
-  </div>
-</div>
-<div class="flex flex-col justify-center overflow-x-auto mt-5">
-  <table class="table">
+{% include 'RevisionApp/snippets/messages.html' %}
+{% include 'RevisionApp/Controls.html' %}
+
+<div class="flex flex-col justify-center overflow-x-auto mt-5 md:px-6" >
+  <table class="table min-h-12">
     <thead>
       <tr>
         <th>
@@ -43,25 +27,16 @@
       hx-get="/revision"
       hx-trigger="load"
       hx-swap="innerHTML"
+      hx-indicator=".htmx-indicator"
     
     >
-      <tr>
-        <td colspan="5" class="text-center">
-          <div class="htmx-indicator flex justify-center mt-5">
-            <span
-              id="loading"
-              class="loading loading-spinner text-primary loading-xl"
-            ></span>
-          </div>
-        </td>
-      </tr>
       {% partialdef problemsComponent %} 
       
       {% for problem in problems %}
       <tr>
         <th>
           <label>
-            <input type="checkbox" class="checkbox" />
+            <input type="checkbox" class="checkbox" hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}' hx-post="{% url 'solved' %}" hx-vals="{{problem}}"/>
           </label>
         </th>
         <td>{{problem.title}}</td>
@@ -86,7 +61,12 @@
       {% endpartialdef %}
     </tbody>
   </table>
- 
+  <div class="htmx-indicator flex justify-center mt-5">
+    <span
+      id="loading"
+      class="loading loading-spinner text-primary loading-xl"
+    ></span>
+  </div>
 </div>
 
 {% endblock %}

@@ -1,0 +1,27 @@
+<div class="flex justify-center mt-10 px-4">
+    <form class="hidden filter justify-self-start md:block">
+      <input class="btn btn-square" type="reset" value="×"/>
+      <input class="btn btn-success" type="radio" name="frameworks" aria-label="Show Solved"/>
+      <input class="btn btn-primary" type="radio" name="frameworks" aria-label="New Problems"/>
+    </form>
+  
+    <div class="join">
+      <div>
+        <div>
+          <input class="input w-[60vw] shrink join-item" name="search" hx-get="search/" hx-trigger="keyup[key=='Enter']" hx-target="tbody" hx-swap="innerHTML"
+          hx-indicator=".htmx-indicator" placeholder="Search" />
+        </div>
+      </div>
+      <select class="select grow join-item" name="difficulty" hx-get="search/" hx-trigger="change" hx-target="tbody" hx-swap="innerHTML"
+      hx-indicator=".htmx-indicator">
+        <option disabled selected>Difficulty</option>
+        <option>Easy</option>
+        <option>Medium</option>
+        <option>Hard</option>
+      </select>
+      <!-- <div class="indicator">
+        <span class="indicator-item badge badge-secondary">new</span>
+        <button class="btn join-item">Search</button>
+      </div> -->
+    </div>
+  </div>

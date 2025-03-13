@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import UserProfile, Problem
+from .models import UserProfile, Solved
 
 # Register your models here.
 admin.site.register(UserProfile)
-admin.site.register(Problem)
+admin.site.register(Solved)

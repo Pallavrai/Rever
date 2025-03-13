@@ -9,13 +9,13 @@ class UserProfile(models.Model):
     def __str__(self):
         return self.user.username
 
-class Problem(models.Model):
+class Solved(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
+    description = models.TextField()
     link = models.URLField()
     frequency = models.IntegerField(default=0)
-    posted_by = models.ForeignKey(User, on_delete=models.CASCADE)
-    posted_at = models.DateTimeField(auto_now_add=True)
-    views = models.IntegerField(default=0)
+    
 
     def __str__(self):
         return self.title

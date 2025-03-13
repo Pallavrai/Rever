@@ -18,14 +18,14 @@ class Problem(BaseModel):
 
 
 def GenerateProblems(problem_query):
-        model = ChatGoogleGenerativeAI(
-                    model="gemini-1.5-pro",
-                    temperature=0,
-                    max_tokens=None,
-                    timeout=None,
-                    max_retries=2,
-                    # other params...
-                )
+        # model = ChatGoogleGenerativeAI(
+        #             model="gemini-1.5-pro",
+        #             temperature=0,
+        #             max_tokens=None,
+        #             timeout=None,
+        #             max_retries=2,
+        #             # other params...
+        #         )
         # model = ChatGroq(model="qwen-2.5-32b",
         #                 temperature=0.6,
         #                 )
